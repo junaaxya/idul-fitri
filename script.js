@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", function() {
+  var enableAudio = confirm("Apakah Anda ingin menyalakan audio?");
+  
+  if (enableAudio) {
+      var audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', './musik/lebaran.mp3');
+      audioElement.setAttribute('type', 'audio/mpeg');
+      audioElement.setAttribute('loop', true);
+      document.body.appendChild(audioElement);
+      audioElement.play(); // Mulai pemutaran audio
+  }
+});
+
+
+
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
@@ -7,6 +22,7 @@ var TxtType = function(el, toRotate, period) {
     this.tick();
     this.isDeleting = false;
 };
+
 
 TxtType.prototype.tick = function() {
     var i = this.loopNum % this.toRotate.length;
